@@ -1,0 +1,7 @@
+New project is create 'npx create-react-app "App Name" '
+
+Project are started with 'npm start'
+
+When cloning repository run 'npm install' into the project before 'npm start' (node_module is missing)
+
+Set up requires nodejs
