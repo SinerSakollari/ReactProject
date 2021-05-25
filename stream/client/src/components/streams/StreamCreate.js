@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
-//20
+import { connect } from 'react-redux';
+import { createStream } from '../../actions';
 
 class StreamCreate extends React.Component {
     renderError ({ error, touched }) {
@@ -26,8 +26,9 @@ class StreamCreate extends React.Component {
         );
     };
 
-    onSubmit(formValues) {
-        
+    //This will make a request 
+    onSubmit = (formValues) => {
+        this.props.createStream(formValues);
     }
 
     render() {
@@ -55,7 +56,10 @@ const validate = (formValues) => {
     return errors;
 };
 
-export default reduxForm({
+//To clean up code we declare the export as a const and then call it
+const formWrapped = reduxForm({
     form: 'streamCreate',
     validate: validate
 })(StreamCreate);
+
+export default connect(null, { createStream })(formWrapped);
