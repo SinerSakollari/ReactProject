@@ -9,6 +9,8 @@ import {
     EDIT_STREAM
 } from './types';
 
+//20.16
+
 export const signIn = (userId) => {
     return {
         type: SIGN_IN,
@@ -23,8 +25,10 @@ export const signOut = () => {
 };
 
 //Creating action which will interact with the db.json file, follow REST convention
-export const createStream = formValues => async dispatch => {
-    const response = await streams.post('/stream', formValues);
+export const createStream = formValues => async (dispatch, getState) => {
+    const { userId } = getState().auth;
+    const response = await streams.post('/stream', { ...formValues, userId });
+
 
     dispatch({ type: CREATE_STREAM, payload: response.data });
 };

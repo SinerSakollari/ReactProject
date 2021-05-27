@@ -4,6 +4,12 @@
       "title": "First stream",
       "description": "It works?",
       "id": 1
+    },
+    {
+      "title": "Secon stream",
+      "description": "Updated",
+      "userId": "116354831526442697399",
+      "id": 2
     }
   ]
 }
